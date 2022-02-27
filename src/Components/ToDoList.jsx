@@ -1,11 +1,20 @@
 import { List } from '@mui/material';
-import ToDo from './ToDo'
+import { Checkbox, IconButton, ListItem, Typography } from '@mui/material'
+import CloseIcon from "@mui/material/Icon"
 
-const ToDoList = ({todos, removeTodo, toggleComplete}) => {
+const ToDoList = ({todos}) => {
     return(
         <List>
-            {todos.map(todo => (
-                <ToDo key={todo.id} todo= {todo} removeTodo={removeTodo} toggleComplete={toggleComplete} />
+            {todos.map(todos => (
+                <ListItem style={{display: "flex"}}>
+      <Checkbox />
+      <Typography variant="body1" >
+        {todos.task}
+      </Typography>
+      <IconButton >
+        <CloseIcon />
+      </IconButton>
+    </ListItem>
             ))}
         </List>    
     )

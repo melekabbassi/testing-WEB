@@ -6,32 +6,39 @@ import ToDoList from './Components/ToDoList';
 
 function App() {
   const [todos, setTodos]= useState([]);
+  //console.log(todos);
 
+  const [query,setQuery] = useState("");
 
-const addTodo = (todo) => {
-  setTodos([todo, ...todo]);
-}
+  const addTodo = () => {
+    const newTask = { task: query };
+    setTodos((todos) => [...todos, newTask ]);
+  };
 
-const toggleComplete = (id) => {
-  setTodos(
-    todos.map(todo => {
-      if (todo.id === id){
-        return {...todo, completed: !todo.complete};
-      }
-    return todo;
-    })
-  );
-}
+  const handleChange = (e) => {
+    setQuery(e.target.value);
+  };
 
-const removeTodo = (id) => {
-  setTodos(todos.filter(todo => todo.id !== id));
-}
+// const toggleComplete = (id) => {
+//   setTodos(
+//     todos.map(todo => {
+//       if (todo.id === id){
+//         return {...todo, completed: !todo.complete};
+//       }
+//     return todo;
+//     })
+//   );
+// }
+
+// const removeTodo = (id) => {
+//   setTodos(todos.filter(todo => todo.id !== id));
+// }
 
   return (
     <div className="App">
       <h1>ToDo List</h1>
-        <ToDoForm addTodo={addTodo} />
-        <ToDoList todos={todos} removeTodo={removeTodo} toggleComplete={toggleComplete} />
+        <ToDoForm addTodo={addTodo} value={query} handleChange={handleChange} />
+        <ToDoList todos={todos} />
     </div>
   );
 }
