@@ -12,4 +12,11 @@ const decrement = () => {
     }
 }
 
-export { increment, decrement }
+const reset = () => {
+    return {
+        type: 'RESET',
+        payload: 0
+    }
+}
+
+export { increment, decrement, reset }
