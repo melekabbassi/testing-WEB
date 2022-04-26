@@ -6,8 +6,9 @@ const Counter = () => {
     const dispatch=useDispatch()
     return (
         <div>
-            <button onClick={()=>dispatch(increment())}>+</button>
+            
             <span>{count}</span>
+            <button onClick={()=>dispatch(increment())}>+</button>
             <button onClick={()=>dispatch(decrement())}>-</button>
             <button onClick={()=>dispatch(reset())}>Reset</button>
         </div>

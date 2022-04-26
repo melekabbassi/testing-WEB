@@ -27,9 +27,10 @@ button {
   border-radius: 3px;
   border: none;
   padding: 10px;
-  width: 100%;
+  width: 50%;
+  background-color: #00bcd4;
 }
 
 button:hover {
-  background-color: #ddd;
+  background-color: #00acc1;
 }
